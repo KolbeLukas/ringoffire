@@ -1,0 +1,36 @@
+.start-screen {
+    background-color: #404040;
+    // background-image: url('/assets/img/startbox.png');
+    // background-size: contain;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        height: 100vh;
+    }
+}
+
+.startlabel-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 35vw;
+        height: auto;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(1.25);
+        }
+    }
+}
