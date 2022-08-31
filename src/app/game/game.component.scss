@@ -10,6 +10,11 @@
     align-items: center;
 }
 
+app-player {
+    position: absolute;
+    right: 0;
+}
+
 .card-stack {
     position: relative;
 
@@ -50,4 +55,10 @@
     100% {
         transform: scale(1) translateX(200px) translateY(-300px) rotate(-10deg);
     }
+}
+
+button {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
 }
