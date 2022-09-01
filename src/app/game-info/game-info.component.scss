@@ -1,0 +1,33 @@
+mat-card {
+    position: absolute;
+    bottom: 20px;
+    right: 10%;
+    left: 10%;
+}
+
+@media (max-width: 850px) {
+    mat-card {
+        right: 12%;
+        left: 8%;
+    }
+}
+
+@media (max-width: 680px) {
+    mat-card {
+        right: 14%;
+        left: 6%;
+    }
+}
+
+@media (max-width: 550px) {
+    mat-card {
+        right: 75px;
+        left: 10px;
+    }
+}
+
+@media (max-width: 300px) {
+    mat-card {
+        bottom: 10px;
+    }
+}

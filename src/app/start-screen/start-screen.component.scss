@@ -1,9 +1,9 @@
 .start-screen {
     background-color: #404040;
-    // background-image: url('/assets/img/startbox.png');
-    // background-size: contain;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    background-image: url('/assets/img/startbox.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -25,12 +25,26 @@
     justify-content: center;
 
     img {
-        width: 35vw;
+        width: 400px;
         height: auto;
         cursor: pointer;
 
         &:hover {
             filter: brightness(1.25);
         }
+    }
+}
+
+@media (max-width: 430px) {
+    .startlabel-box {
+        img {
+            width: 94%;
+        }
+    }
+}
+
+@media (max-aspect-ratio: 100/83) {
+    .start-screen {
+        background-size: cover;
     }
 }
