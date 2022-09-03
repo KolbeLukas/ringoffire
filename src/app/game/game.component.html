@@ -3,22 +3,24 @@
 
 <div class="field">
     <div class="card-stack">
+        <!-- EMPTY CARD STACK / NEW GAME -->
+
         <!-- CARD STACK -->
-        <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0, 1, 2, 3]; let i = index;"
+        <img [ngStyle]="{'right.px': i * 3}" *ngFor="let c of visibleStack; let i = index;"
             src="assets/img/cards/card_cover.png">
 
         <!-- TOP CARD FROM STACK -->
-        <img (click)="takeCard()" class="top-card" style="right: 20px;"
-            src="assets/img/cards/card_cover.png">
+        <img (click)="takeCard()" class="top-card" [ngStyle]="{'right.px': visibleStack.length * 3}"
+            *ngIf="game.stack.length > 0" src="assets/img/cards/card_cover.png">
 
         <!-- STACK FOR PLAYED CARDS -->
-        <img *ngFor="let card of game.playedCards" class="played-card"
+        <img *ngFor="let card of game.playedCards; let i = index" class="played-card-{{ i % 3 }}"
             src="assets/img/cards/{{ card }}.png">
 
         <!-- CURRENT CARD (ANIMATION) -->
-        <img *ngIf="pickCardAnimation" class="pick-card"
-            style="right: 20px;" src="assets/img/cards/{{ currentCard }}.png">
-    </div>
+        <img *ngIf="pickCardAnimation" class="pick-card-{{ turn }}" [ngStyle]="{'right.px': visibleStack.length * 3}"
+            src="assets/img/cards/{{ currentCard }}.png">
+        </div>
 </div>
 
 <app-game-info [card]="currentCard"></app-game-info>
