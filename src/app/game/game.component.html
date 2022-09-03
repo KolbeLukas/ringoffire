@@ -3,7 +3,8 @@
 
 <div class="field">
     <div class="card-stack">
-        <!-- EMPTY CARD STACK / NEW GAME -->
+        <!-- GAME OVER -->
+        <img [ngStyle]="{'right.px': 0}" src="assets/img/game-over.png">
 
         <!-- CARD STACK -->
         <img [ngStyle]="{'right.px': i * 3}" *ngFor="let c of visibleStack; let i = index;"
