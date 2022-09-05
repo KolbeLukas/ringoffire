@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { Firestore, collectionData, collection, setDoc, doc, addDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -16,8 +19,20 @@ export class GameComponent implements OnInit {
   stackCount: number = 10;
   noCardLeft: boolean = false;
   turn: number = 0;
+  games$: Observable<any>;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) {
+    const coll = collection(firestore, 'games');
+    this.games$ = collectionData(coll);
+
+    this.route.params.subscribe(param => {
+      console.log(param['id']);
+                                            //PROBLEM beim einbinden des param
+    this.games$.subscribe(game => {
+      console.log('neues game', game)
+    });
+  });
+  }
 
   ngOnInit(): void {
     this.newGame();
@@ -26,6 +41,8 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game;
+    // const coll = collection(this.firestore, 'games');
+    // addDoc(coll, this.game.toJson());
     this.visibleStack = this.game.stack.slice(0, this.stackCount);
   }
 

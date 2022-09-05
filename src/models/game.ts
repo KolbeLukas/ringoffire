@@ -7,26 +7,36 @@ export class Game {
     constructor() {
         for (let i = 1; i < 14; i++) {
             this.stack.push('clubs_' + i);
-            this.stack.push('diamonds_' + i);
-            this.stack.push('hearts_' + i);
-            this.stack.push('spades_' + i);
+            // this.stack.push('diamonds_' + i);
+            // this.stack.push('hearts_' + i);
+            // this.stack.push('spades_' + i);
         }
-        shuffle(this.stack);
+        this.shuffle(this.stack);
     }
-}
 
-function shuffle(array: any) {
-    let currentIndex = array.length, randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-
-        // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    public toJson() {
+        return {
+            players: this.players,
+            stack: this.stack,
+            playedCards: this.playedCards,
+            currentPlayer: this.currentPlayer
+        };
     }
-    return array;
+    
+
+    shuffle(array: any) {
+        let currentIndex = array.length, randomIndex;
+
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
 }
