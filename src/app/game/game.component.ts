@@ -12,8 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  pickCardAnimation: boolean = false;
-  currentCard: string | undefined = '';
+  
   game!: Game;
   visibleStack!: string[];
   stackCount: number = 10;
@@ -47,6 +46,8 @@ export class GameComponent implements OnInit {
         this.game.stack = game['stack'];
         this.game.playedCards = game['playedCards'];
         this.game.currentPlayer = game['currentPlayer'];
+        this.game.pickCardAnimation = game['pickCardAnimation'];
+        this.game.currentCard = game['currentCard'];
       })
     });
   }
@@ -60,8 +61,8 @@ export class GameComponent implements OnInit {
 
   takeCard() {
     this.checkIfPlayer();
-    if (!this.pickCardAnimation && this.game.players.length > 0) {
-      this.currentCard = this.game.stack.pop();
+    if (!this.game.pickCardAnimation && this.game.players.length > 0) {
+      this.game.currentCard = this.game.stack.pop();
       this.saveGame();
       this.playAnimation();
       this.updateVisibleStack();
@@ -80,13 +81,14 @@ export class GameComponent implements OnInit {
 
 
   playAnimation() {
-    this.pickCardAnimation = true;
+    this.game.pickCardAnimation = true;
     this.game.currentPlayer++;
     this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+    this.saveGame();
     setTimeout(() => {
-      let currentCard: string = this.currentCard ?? '';
+      let currentCard: string = this.game.currentCard ?? '';
       this.game.playedCards?.push(currentCard);
-      this.pickCardAnimation = false;
+      this.game.pickCardAnimation = false;
       this.saveGame();
     }, 1000);
   }

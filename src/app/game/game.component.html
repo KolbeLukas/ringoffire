@@ -20,12 +20,12 @@
             src="assets/img/cards/{{ card }}.png">
 
         <!-- CURRENT CARD (ANIMATION) -->
-        <img *ngIf="pickCardAnimation" class="pick-card-{{ turn }}" [ngStyle]="{'right.px': visibleStack.length * 3}"
-            src="assets/img/cards/{{ currentCard }}.png">
+        <img *ngIf="game.pickCardAnimation" class="pick-card-{{ turn }}" [ngStyle]="{'right.px': visibleStack.length * 3}"
+            src="assets/img/cards/{{ game.currentCard }}.png">
         </div>
 </div>
 
-<app-game-info [card]="currentCard"></app-game-info>
+<app-game-info [card]="game.currentCard"></app-game-info>
 
 <button (click)="openDialog()" mat-fab color="primary">
     <mat-icon><img src="assets/img/add.png"></mat-icon>
