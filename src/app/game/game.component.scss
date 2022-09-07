@@ -35,17 +35,17 @@ app-player {
 }
 
 .played-card-0 {
-    right: 20px;
+    right: 0px;
     transform: scale(1) translateX(125%) translateY(-70%) rotate(-15deg);
 }
 
 .played-card-1 {
-    right: 20px;
+    right: 0px;
     transform: scale(1) translateX(125%) translateY(-70%) rotate(10deg);
 }
 
 .played-card-2 {
-    right: 20px;
+    right: 0px;
     transform: scale(1) translateX(125%) translateY(-60%) rotate(0deg);
 }
 
@@ -74,7 +74,7 @@ app-player {
     }
 
     100% {
-        right: 20px;
+        right: 0px;
         transform: scale(1) translateX(125%) translateY(-70%) rotate(-15deg);
     }
 }
@@ -89,7 +89,7 @@ app-player {
     }
 
     100% {
-        right: 20px;
+        right: 0px;
         transform: scale(1) translateX(125%) translateY(-70%) rotate(10deg);
     }
 }
@@ -104,7 +104,7 @@ app-player {
     }
 
     100% {
-        right: 20px;
+        right: 0px;
         transform: scale(1) translateX(125%) translateY(-60%) rotate(0deg);
     }
 }
@@ -247,7 +247,7 @@ button {
 @media (max-width: 420px) {
     .card-stack {
         img {
-            height: 200px;
+            height: 170px;
         }
     }
 }

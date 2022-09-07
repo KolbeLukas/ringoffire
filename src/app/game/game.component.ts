@@ -6,22 +6,29 @@ import { Firestore, doc, updateDoc, docData } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
+
+export interface DialogData {
+  name: string;
+  icon: string;
+}
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  
   game!: Game;
-  visibleStack!: string[];
-  stackCount: number = 10;
   noCardLeft: boolean = false;
-  turn: number = 0;
   gameId!: string;
   game$!: Observable<any>;
+  playerData: DialogData = {
+    name: '',
+    icon: ''
+  };
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) {
+  }
 
 
   ngOnInit(): void {
@@ -32,7 +39,6 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game;
-    this.visibleStack = this.game.stack.slice(0, this.stackCount);
   }
 
 
@@ -43,11 +49,15 @@ export class GameComponent implements OnInit {
       this.game$ = docData(docRef);
       this.game$.subscribe(game => {
         this.game.players = game['players'];
+        this.game.playersIcon = game['playersIcon'];
         this.game.stack = game['stack'];
         this.game.playedCards = game['playedCards'];
         this.game.currentPlayer = game['currentPlayer'];
         this.game.pickCardAnimation = game['pickCardAnimation'];
         this.game.currentCard = game['currentCard'];
+        this.game.visibleStack = game['visibleStack'];
+        this.game.stackCount = game['stackCount'];
+        this.game.cardTurn = game['cardTurn'];
       })
     });
   }
@@ -87,7 +97,7 @@ export class GameComponent implements OnInit {
     this.saveGame();
     setTimeout(() => {
       let currentCard: string = this.game.currentCard ?? '';
-      this.game.playedCards?.push(currentCard);
+      this.game.playedCards.push(currentCard);
       this.game.pickCardAnimation = false;
       this.saveGame();
     }, 1000);
@@ -96,29 +106,35 @@ export class GameComponent implements OnInit {
 
   turnPlayedCard() {
     setTimeout(() => {
-      this.turn++
-      this.turn = this.turn % 3;
+      this.game.cardTurn++
+      this.game.cardTurn = this.game.cardTurn % 3;
+      this.saveGame();
     }, 1000);
+    
   }
 
 
   updateVisibleStack() {
-    if (this.stackCount >= this.game.stack.length) {
-      this.stackCount--;
-      this.visibleStack = this.game.stack.slice(0, this.stackCount)
+    if (this.game.stackCount >= this.game.stack.length) {
+      this.game.stackCount--;
+      this.game.visibleStack = this.game.stack.slice(0, this.game.stackCount);
     }
-    if (this.stackCount == 0) {
+    if (this.game.stackCount == 0) {
       this.noCardLeft = true;
     }
+    this.saveGame();
   }
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+    const dialogRef = this.dialog.open(DialogAddPlayerComponent, {
+      data: {name: this.playerData.name, icon: this.playerData.icon} 
+    });
 
-    dialogRef.afterClosed().subscribe(name => {
-      if (name && name.length > 0) {
-        this.game.players.push(name);
+    dialogRef.afterClosed().subscribe(data => {
+      if (data.name && data.name.length > 0) {
+        this.game.players.push(data.name);
+        this.game.playersIcon.push(data.icon);
         this.saveGame();
       }
     });

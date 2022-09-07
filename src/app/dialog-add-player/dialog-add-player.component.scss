@@ -1,0 +1,28 @@
+.player-select {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    input {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        img {
+            height: 40px;
+            width: 40px;
+            border: 2px solid transparent;
+            border-radius: 100%;
+        }
+    }
+
+    :checked + label {
+        img {
+            height: 50px;
+            width: 50px;
+            border: 2px solid rgba(0, 0, 0, 0.4);
+        }
+    }
+}

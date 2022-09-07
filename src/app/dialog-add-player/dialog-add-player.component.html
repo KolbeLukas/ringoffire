@@ -3,10 +3,21 @@
     <p>Enter the name of the player.</p>
     <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name">
+        <input matInput [(ngModel)]="data.name">
     </mat-form-field>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+    <div class="player-select">
+        <div *ngFor="let p of players; let i = index">
+            <input type="checkbox" id="checkbox{{ i }}" [value]="p.value" [checked]="p.isChecked"
+                (change)="onChange($event)">
+            <label for="checkbox{{ i }}">
+                <img src="/assets/img/player/player-icon-{{ i }}.png">
+            </label>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [disabled]="data.name.length == 0" [mat-dialog-close]="data">
+            Ok
+        </button>
+    </div>
 </div>
