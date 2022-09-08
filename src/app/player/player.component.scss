@@ -21,6 +21,17 @@
         object-fit: cover;
         border-radius: 100%;
     }
+
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: red;
+        padding: 4px;
+    }
 }
 
 .player-active {

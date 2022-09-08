@@ -1,6 +1,6 @@
 <app-player *ngFor="let player of game.players; let i = index;"
     [playerActive]="i == game.currentPlayer" [name]="player" [icon]="game.playersIcon[i]"
-    [ngStyle]="{'top.px': 30 + (i * 75)}"></app-player>
+    [game]="game" [save]=" getParentMethod()" [id]="i" [ngStyle]="{'top.px': 30 + (i * 75)}"></app-player>
 
 <div class="field">
     <div class="card-stack">
@@ -31,3 +31,5 @@
 <button (click)="openDialog()" mat-fab color="primary">
     <mat-icon><img src="assets/img/add.png"></mat-icon>
 </button>
+
+<!-- <app-game-instructions></app-game-instructions> -->

@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { GameInstructionsComponent } from './game-instructions/game-instructions.component';
 
 
 
@@ -32,7 +33,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     GameComponent,
     PlayerComponent,
     DialogAddPlayerComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    GameInstructionsComponent
   ],
   imports: [
     BrowserModule,

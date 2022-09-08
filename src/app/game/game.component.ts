@@ -63,6 +63,15 @@ export class GameComponent implements OnInit {
   }
 
 
+  getParentMethod():any {
+    return {
+      callParentMethod: () => {
+        this.saveGame()
+      }
+    }
+  }
+
+
   saveGame() {
     const docRef: any = doc(this.firestore, 'games', this.gameId);
     updateDoc(docRef, this.game.toJson());

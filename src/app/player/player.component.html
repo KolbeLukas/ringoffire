@@ -1,4 +1,5 @@
 <div class="player" [class.player-active]="playerActive">
     <img src="assets/img/player/player-icon-{{icon}}.png">    
     <span>{{ name }}</span>
+    <button (click)="deletePlayer()">X</button>
 </div>
