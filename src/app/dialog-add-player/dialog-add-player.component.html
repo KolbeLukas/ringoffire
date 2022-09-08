@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Add new player</h1>
-<div mat-dialog-content>
+<div mat-dialog-content class="content">
     <p>Enter the name of the player.</p>
     <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
@@ -16,7 +16,7 @@
     </div>
     <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">No Thanks</button>
-        <button mat-button [disabled]="data.name.length == 0" [mat-dialog-close]="data">
+        <button mat-button [disabled]="data.name.length == 0 || icon.length == 0" [mat-dialog-close]="data">
             Ok
         </button>
     </div>

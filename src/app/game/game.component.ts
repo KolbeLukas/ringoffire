@@ -132,7 +132,7 @@ export class GameComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(data => {
-      if (data.name && data.name.length > 0) {
+      if (data && data.name.length > 0) {
         this.game.players.push(data.name);
         this.game.playersIcon.push(data.icon);
         this.saveGame();

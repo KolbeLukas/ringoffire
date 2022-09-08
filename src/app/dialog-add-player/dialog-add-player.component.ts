@@ -14,10 +14,10 @@ export class DialogAddPlayerComponent {
     { 'value': '2', isChecked: false },
     { 'value': '3', isChecked: false }
   ];
+  icon: any[] = []
 
-  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-  }
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
 
   onNoClick() {
@@ -30,7 +30,20 @@ export class DialogAddPlayerComponent {
     let index = this.players.length;
     while (index--) {
       this.players[index].isChecked = value === this.players[index]['value'];
+      this.updateIcon(index);
     }
-    this.data.icon = value
+  }
+
+
+  updateIcon(index: any) {
+    if (this.players[index].isChecked) {
+      if (this.icon.includes(index)) {
+        this.icon = [];
+      } else {
+        this.icon = [];
+        this.icon.push(index);
+      }
+      this.data.icon = this.icon[0];
+    }
   }
 }
