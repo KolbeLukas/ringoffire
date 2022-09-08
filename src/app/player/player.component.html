@@ -1,5 +1,7 @@
 <div class="player" [class.player-active]="playerActive">
-    <img src="assets/img/player/player-icon-{{icon}}.png">    
+    <img class="icon" src="assets/img/player/player-icon-{{icon}}.png">    
     <span>{{ name }}</span>
-    <button (click)="deletePlayer()">X</button>
+    <button (click)="deletePlayer()" matTooltip="Delete player">
+        <img src="/assets/img/x-mark.png">
+    </button>
 </div>

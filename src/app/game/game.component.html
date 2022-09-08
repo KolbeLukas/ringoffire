@@ -1,12 +1,13 @@
-<app-player *ngFor="let player of game.players; let i = index;"
-    [playerActive]="i == game.currentPlayer" [name]="player" [icon]="game.playersIcon[i]"
-    [game]="game" [save]=" getParentMethod()" [id]="i" [ngStyle]="{'top.px': 30 + (i * 75)}"></app-player>
-
+<div class="player-container">
+    <app-player *ngFor="let player of game.players; let i = index;" [playerActive]="i == game.currentPlayer"
+        [name]="player" [icon]="game.playersIcon[i]" [game]="game" [save]=" getParentMethod()" [id]="i">
+    </app-player>
+</div>
 <div class="field">
     <div class="card-stack">
         <!-- GAME OVER -->
-        <img *ngIf="game.stack.length <= 0" [ngStyle]="{'right.px': 0}"
-            src="assets/img/game-over.png">
+        <img *ngIf="game.stack.length <= 0" [ngStyle]="{'right.px': 0}" src="assets/img/game-over.png">
+        <button mat-raised-button color="warn" routerLink="/" (click)="gameOver()">New Game</button>
 
         <!-- CARD STACK -->
         <img [ngStyle]="{'right.px': i * 3}" *ngFor="let c of game.visibleStack; let i = index;"
@@ -21,15 +22,15 @@
             src="assets/img/cards/{{ card }}.png">
 
         <!-- CURRENT CARD (ANIMATION) -->
-        <img *ngIf="game.pickCardAnimation" class="pick-card-{{ game.cardTurn }}" [ngStyle]="{'right.px': game.visibleStack.length * 3}"
-            src="assets/img/cards/{{ game.currentCard }}.png">
-        </div>
+        <img *ngIf="game.pickCardAnimation" class="pick-card-{{ game.cardTurn }}"
+            [ngStyle]="{'right.px': game.visibleStack.length * 3}" src="assets/img/cards/{{ game.currentCard }}.png">
+    </div>
 </div>
 
 <app-game-info [card]="game.currentCard"></app-game-info>
 
-<button (click)="openDialog()" mat-fab color="primary">
-    <mat-icon><img src="assets/img/add.png"></mat-icon>
+<button class="add-player" (click)="openDialog()" mat-fab color="primary" matTooltip="Add player" matTooltipPosition="above">
+    <img src="assets/img/add.png">
 </button>
 
 <!-- <app-game-instructions></app-game-instructions> -->

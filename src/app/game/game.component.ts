@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { Firestore, doc, updateDoc, docData } from '@angular/fire/firestore';
+import { Firestore, doc, updateDoc, docData, deleteDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -147,5 +147,11 @@ export class GameComponent implements OnInit {
         this.saveGame();
       }
     });
+  }
+
+
+  gameOver() {
+    const docRef: any = doc(this.firestore, 'games', this.gameId);
+    deleteDoc(docRef);
   }
 }

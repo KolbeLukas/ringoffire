@@ -10,12 +10,23 @@
     align-items: center;
 }
 
-app-player {
+.player-container {
     position: absolute;
     right: 0;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: auto;
+    max-height: calc(100vh - 170px);
 }
 
-button {
+app-player {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.add-player {
     position: absolute;
     right: 2%;
     bottom: 30px;
@@ -29,6 +40,14 @@ button {
         height: 300px;
         top: -30px;
     }
+
+    button {
+        position: absolute;
+        right: 39px;
+        top: 140px;
+        width: 120px;
+    }
+
 }
 
 .top-card {
@@ -229,18 +248,18 @@ button {
 }
 
 @media (max-width: 550px) {
-    .card-stack {
-        left: -30px;
-    }
-
-    button {
+    .add-player {
         right: 10px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 485px) {
     .card-stack {
         left: 0;
+    }
+
+    .player-container {
+        max-height: calc(100vh - 200px);
     }
 }
 
@@ -252,6 +271,12 @@ button {
     }
 }
 
+@media (max-width: 400px) {
+    .player-container {
+        max-height: calc(100vh - 220px);
+    }
+}
+
 @media (max-width: 350px) {
     .card-stack {
         img {
@@ -260,8 +285,18 @@ button {
     }
 }
 
-@media (max-width: 300px) {
-    button {
+@media (max-width: 301px) {
+    .add-player {
         bottom: 20px;
+    }
+
+    .player-container {
+        max-height: calc(100vh - 240px);
+    }
+}
+
+@media (max-width: 282px) {
+    .player-container {
+        max-height: calc(100vh - 260px);
     }
 }

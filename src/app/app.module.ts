@@ -11,11 +11,11 @@ import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.
 import { GameInfoComponent } from './game-info/game-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -43,11 +43,11 @@ import { GameInstructionsComponent } from './game-instructions/game-instructions
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatTooltipModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
