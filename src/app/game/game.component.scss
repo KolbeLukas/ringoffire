@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: flex-end;
     overflow: auto;
-    max-height: calc(100vh - 170px);
+    max-height: calc(100vh - 150px);
 }
 
 app-player {
@@ -43,11 +43,9 @@ app-player {
 
     button {
         position: absolute;
-        right: 39px;
+        right: 49px;
         top: 140px;
-        width: 120px;
     }
-
 }
 
 .top-card {
@@ -134,41 +132,25 @@ app-player {
     }
 }
 
-@media (max-height: 910px) {
-    .card-stack {
-        img {
-            height: 250px;
-            top: -70px;
-        }
-    }
-}
-
-@media (max-height: 770px) {
-    .card-stack {
-        img {
-            height: 200px;
-            top: -70px;
-        }
-    }
-}
-
-@media (max-height: 650px) {
-    .card-stack {
-        img {
-            height: 170px;
-        }
-    }
-}
-
 @media (max-width: 1000px) {
     .card-stack {
         left: -100px;
     }
 }
 
-@media (max-width: 690px) {
+@media (max-width: 770px) {
     .card-stack {
         left: 0;
+        top: 30px;
+
+        img {
+            height: 270px;
+        }
+
+        button {
+            right: 39px;
+            top: 120px;
+        }
     }
 
     .played-card-0 {
@@ -247,49 +229,71 @@ app-player {
     }
 }
 
-@media (max-width: 550px) {
-    .add-player {
-        right: 10px;
+@media (max-width: 735px) {
+    .player-container {
+        max-height: calc(100vh - 170px);
+    }
+}
+
+@media (max-width: 520px) {
+    .card-stack {
+        img {
+            height: 250px;
+        }
+
+        button {
+            right: 31px;
+            top: 110px;
+        }
     }
 }
 
 @media (max-width: 485px) {
-    .card-stack {
-        left: 0;
-    }
-
     .player-container {
-        max-height: calc(100vh - 200px);
+        max-height: calc(100vh - 190px);
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 440px) {
     .card-stack {
         img {
-            height: 170px;
+            height: 230px;
+        }
+
+        button {
+            right: 26px;
+            top: 90px;
         }
     }
 }
 
 @media (max-width: 400px) {
     .player-container {
-        max-height: calc(100vh - 220px);
+        max-height: calc(100vh - 210px);
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 360px) {
     .card-stack {
         img {
-            height: 160px;
+            height: 200px;
+        }
+
+        button {
+            right: 21px;
+            top: 75px;
+            font-size: 12px;
         }
     }
 }
 
-@media (max-width: 301px) {
-    .add-player {
-        bottom: 20px;
+@media (max-width: 346px) {
+    .player-container {
+        max-height: calc(100vh - 230px);
     }
+}
 
+@media (max-width: 301px) {
     .player-container {
         max-height: calc(100vh - 240px);
     }
@@ -298,5 +302,35 @@ app-player {
 @media (max-width: 282px) {
     .player-container {
         max-height: calc(100vh - 260px);
+    }
+}
+
+@media (max-height: 850px) {
+    .card-stack {
+        top: -10px;
+    }
+}
+
+@media (max-height: 800px) {
+    .card-stack {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-height: 750px) {
+    .card-stack {
+        top: -30px;
+    }
+}
+
+@media (max-height: 700px) {
+    .card-stack {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-height: 680px) {
+    .card-stack {
+        top: -50px;
     }
 }

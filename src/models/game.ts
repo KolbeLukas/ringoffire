@@ -11,11 +11,11 @@ export class Game {
     public visibleStack: string[] = [];
 
     constructor() {
-        for (let i = 1; i < 14; i++) {
+        for (let i = 1; i < 14; i++) {      //14
             this.stack.push('clubs_' + i);
-            // this.stack.push('diamonds_' + i);
-            // this.stack.push('hearts_' + i);
-            // this.stack.push('spades_' + i);
+            this.stack.push('diamonds_' + i);
+            this.stack.push('hearts_' + i);
+            this.stack.push('spades_' + i);
         }
         this.shuffle(this.stack);
         this.visibleStack = this.stack.slice(0, this.stackCount);
