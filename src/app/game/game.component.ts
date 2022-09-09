@@ -22,6 +22,7 @@ export class GameComponent implements OnInit {
   noCardLeft: boolean = false;
   gameId!: string;
   game$!: Observable<any>;
+  subscriber$: any;
   playerData: DialogData = {
     name: '',
     icon: ''
@@ -47,7 +48,7 @@ export class GameComponent implements OnInit {
       this.gameId = param['id'];
       const docRef = doc(this.firestore, 'games', this.gameId);
       this.game$ = docData(docRef);
-      this.game$.subscribe(game => {
+      this.subscriber$ = this.game$.subscribe(game => {
         this.game.players = game['players'];
         this.game.playersIcon = game['playersIcon'];
         this.game.stack = game['stack'];
@@ -151,6 +152,7 @@ export class GameComponent implements OnInit {
 
 
   gameOver() {
+    this.subscriber$.unsubscribe();
     const docRef: any = doc(this.firestore, 'games', this.gameId);
     deleteDoc(docRef);
   }
