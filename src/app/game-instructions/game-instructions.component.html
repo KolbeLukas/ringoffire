@@ -1,16 +1,23 @@
-<div class="container">
-    <mat-card class="example-card">
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+<div class="container" [class.d-none]="display" (click)="closeInstructions()">
+    <mat-card (click)="stop($event)">
+        <mat-card-title>Instructions</mat-card-title>
+        <mat-card-subtitle>How to play...</mat-card-subtitle>
         <mat-card-content>
-            <p>This card indeterminates progress bar.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae impedit provident sed consequatur
-                obcaecati officia nemo distinctio reprehenderit, voluptatibus repellendus. Reprehenderit distinctio
-                soluta, incidunt earum ad illo sed quod unde.</p>
+            <p>This is your game URL: <span class="url">{{ url }}</span></p>
+            <ol>
+                <li>Send your game URL to the friends you want to play with.</li>
+                <li>Create any player by its name who wants to play and select an icon.</li>
+                <li>The player whose turn it is (orange mark) draws a card.</li>
+                <li>The card determines the action to be done (description in the box at the bottom).</li>
+                <li>Ladys and gentlemans, have your drinks ready and have fun.</li>
+            </ol>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
+            <button mat-button (click)="closeInstructions()">Close</button>
         </mat-card-actions>
     </mat-card>
 </div>
+
+<button mat-mini-fab color="primary" class="info" (click)="openInstructions()" matTooltip="Instructions" matTooltipPosition="left">
+    <img src="/assets/img/info.png">
+</button>

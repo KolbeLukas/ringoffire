@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-instructions.component.scss']
 })
 export class GameInstructionsComponent implements OnInit {
-
-  constructor() { }
+  url: string = '';
+  display: boolean = false;
 
   ngOnInit(): void {
+    this.url = window.location.href;
   }
 
+  closeInstructions() {
+    this.display = true;
+  }
+
+  openInstructions() {
+    this.display = false;
+  }
+
+  stop(event: any) {
+    event.stopPropagation();
+  }
 }
