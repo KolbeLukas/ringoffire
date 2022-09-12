@@ -9,6 +9,7 @@ export class Game {
     public stackCount: number = 10;
     public cardTurn: number = 0;
     public visibleStack: string[] = [];
+    public time: Date;
 
     constructor() {
         for (let i = 1; i < 14; i++) {      //14
@@ -19,6 +20,7 @@ export class Game {
         }
         this.shuffle(this.stack);
         this.visibleStack = this.stack.slice(0, this.stackCount);
+        this.time = new Date()
     }
 
     public toJson() {
@@ -32,7 +34,8 @@ export class Game {
             currentCard: this.currentCard,
             stackCount: this.stackCount,
             cardTurn: this.cardTurn,
-            visibleStack: this.visibleStack
+            visibleStack: this.visibleStack,
+            time: this.time
         };
     }
     

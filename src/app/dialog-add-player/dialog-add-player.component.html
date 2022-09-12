@@ -5,6 +5,7 @@
         <mat-label>Name</mat-label>
         <input matInput [(ngModel)]="data.name">
     </mat-form-field>
+    <p>Choose an icon.</p>
     <div class="player-select">
         <div *ngFor="let p of players; let i = index">
             <input type="checkbox" id="checkbox{{ i }}" [value]="p.value" [checked]="p.isChecked"
