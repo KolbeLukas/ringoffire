@@ -43,8 +43,11 @@ app-player {
 
     button {
         position: absolute;
-        right: 49px;
+        right: 23px;
         top: 140px;
+        width: 150px;
+        height: 50px;
+        font-size: 18px;
     }
 }
 
@@ -134,23 +137,20 @@ app-player {
 
 @media (max-width: 1000px) {
     .card-stack {
-        left: -100px;
+        left: -150px;
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 735px) {
+    .player-container {
+        max-height: calc(100vh - 170px);
+    }
+}
+
+@media (max-width: 700px) and (min-height: 600px) {
     .card-stack {
         left: 0;
-        top: 30px;
-
-        img {
-            height: 270px;
-        }
-
-        button {
-            right: 39px;
-            top: 120px;
-        }
+        scale: 0.9;
     }
 
     .played-card-0 {
@@ -229,22 +229,9 @@ app-player {
     }
 }
 
-@media (max-width: 735px) {
-    .player-container {
-        max-height: calc(100vh - 170px);
-    }
-}
-
 @media (max-width: 520px) {
     .card-stack {
-        img {
-            height: 250px;
-        }
-
-        button {
-            right: 31px;
-            top: 110px;
-        }
+        scale: 0.8;
     }
 }
 
@@ -256,14 +243,7 @@ app-player {
 
 @media (max-width: 440px) {
     .card-stack {
-        img {
-            height: 230px;
-        }
-
-        button {
-            right: 26px;
-            top: 90px;
-        }
+        scale: 0.7;
     }
 }
 
@@ -275,15 +255,7 @@ app-player {
 
 @media (max-width: 360px) {
     .card-stack {
-        img {
-            height: 200px;
-        }
-
-        button {
-            right: 21px;
-            top: 75px;
-            font-size: 12px;
-        }
+        scale: 0.6;
     }
 }
 
@@ -313,7 +285,7 @@ app-player {
 
 @media (max-height: 800px) {
     .card-stack {
-        transform: scale(0.9);
+        scale: 0.9;
     }
 }
 
@@ -325,12 +297,31 @@ app-player {
 
 @media (max-height: 700px) {
     .card-stack {
-        transform: scale(0.8);
+        scale: 0.8;
     }
 }
 
 @media (max-height: 680px) {
     .card-stack {
         top: -50px;
+    }
+}
+
+@media (max-height: 590px) {
+    .card-stack {
+        scale: 0.7;
+        top: -70px;
+    }
+}
+
+@media (max-height: 500px) {
+    .card-stack {
+        scale: 0.6;
+    }
+}
+
+@media (max-height: 435px) {
+    .card-stack {
+        scale: 0.5;
     }
 }

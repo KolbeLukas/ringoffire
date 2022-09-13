@@ -12,7 +12,7 @@ export class Game {
     public time: Date;
 
     constructor() {
-        for (let i = 1; i < 14; i++) {      //14
+        for (let i = 1; i < 14; i++) {
             this.stack.push('clubs_' + i);
             this.stack.push('diamonds_' + i);
             this.stack.push('hearts_' + i);
@@ -43,14 +43,9 @@ export class Game {
     shuffle(array: any) {
         let currentIndex = array.length, randomIndex;
 
-        // While there remain elements to shuffle.
         while (currentIndex != 0) {
-
-            // Pick a remaining element.
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
-
-            // And swap it with the current element.
             [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
         }
         return array;
