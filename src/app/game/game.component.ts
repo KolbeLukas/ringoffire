@@ -5,6 +5,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { Firestore, doc, updateDoc, docData, deleteDoc } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LegalNoticeComponent } from '../legal-notice/legal-notice.component';
 
 
 export interface DialogData {
@@ -64,7 +65,7 @@ export class GameComponent implements OnInit {
   }
 
 
-  getParentMethod():any {
+  getParentMethod(): any {
     return {
       callParentMethod: () => {
         this.saveGame()
@@ -120,7 +121,7 @@ export class GameComponent implements OnInit {
       this.game.cardTurn = this.game.cardTurn % 3;
       this.saveGame();
     }, 1000);
-    
+
   }
 
 
@@ -138,7 +139,7 @@ export class GameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent, {
-      data: {name: this.playerData.name, icon: this.playerData.icon} 
+      data: { name: this.playerData.name, icon: this.playerData.icon }
     });
 
     dialogRef.afterClosed().subscribe(data => {
@@ -155,5 +156,9 @@ export class GameComponent implements OnInit {
     this.subscriber$.unsubscribe();
     const docRef: any = doc(this.firestore, 'games', this.gameId);
     deleteDoc(docRef);
+  }
+
+  openLegalNotice() {
+    this.dialog.open(LegalNoticeComponent);
   }
 }

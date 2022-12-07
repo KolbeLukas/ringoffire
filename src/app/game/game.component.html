@@ -29,8 +29,13 @@
 
 <app-game-info [card]="game.currentCard"></app-game-info>
 
-<button class="add-player" (click)="openDialog()" mat-fab color="primary" matTooltip="Add player" matTooltipPosition="left">
+<button class="add-player" (click)="openDialog()" mat-fab color="primary" matTooltip="Add player"
+    matTooltipPosition="left">
     <img src="assets/img/add.png">
 </button>
+
+<div class="legal-notice">
+    <button mat-button (click)="openLegalNotice()">Legal Notice</button>
+</div>
 
 <app-game-instructions></app-game-instructions>

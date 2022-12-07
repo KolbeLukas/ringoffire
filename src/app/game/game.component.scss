@@ -90,6 +90,18 @@ app-player {
     transform: scale(1) translateX(125%) translateY(-60%) rotate(0deg);
 }
 
+.legal-notice {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button {
+        line-height: 20px;
+    }
+}
+
 @keyframes pick-card-animation-0 {
     0% {
         transform: scale(1);

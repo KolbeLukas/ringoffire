@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartScreenComponent } from './start-screen/start-screen.component';
@@ -22,9 +21,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { GameInstructionsComponent } from './game-instructions/game-instructions.component';
-
-
-
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +31,8 @@ import { GameInstructionsComponent } from './game-instructions/game-instructions
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
-    GameInstructionsComponent
+    GameInstructionsComponent,
+    LegalNoticeComponent
   ],
   imports: [
     BrowserModule,

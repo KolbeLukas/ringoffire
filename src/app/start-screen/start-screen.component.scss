@@ -9,7 +9,7 @@
     max-width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 
     img {
         height: 100vh;
@@ -33,6 +33,10 @@
             filter: brightness(1.25);
         }
     }
+}
+
+button {
+    margin-bottom: 16px;
 }
 
 @media (max-width: 430px) {
